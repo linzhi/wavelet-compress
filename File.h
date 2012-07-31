@@ -1,7 +1,8 @@
 /*
- *  FILE: File.h
- *  Author: linzhi
- *  Date;2012-7-30
+ *
+ * FILE: File.h
+ * Author: linzhi
+ * Date:2012-7-30
  *
  */
 
@@ -15,7 +16,7 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size);
 void FileType(const char *file_input, int &lon, int &wid, int &hei);
 
 //If long width or height isn't powers of two function will calculate closest power of two
-//and then fill empty space with 0.
+//and then fill empty space with 0
 int GetClosestPowerOfTwo(int integer);
 
 //fill the 3D data's extend space to zero, return a 3D data which is filled with zero
