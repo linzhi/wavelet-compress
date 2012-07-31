@@ -1,7 +1,7 @@
 /*
- *	FILE: File.c
- *	Date: 2012-7-15
- *	Author: linzhi
+ * FILE: File.c
+ * Date: 2012-7-15
+ * Author: linzhi
  */
 
 #include <iostream> 
@@ -54,7 +54,7 @@ void FileType(const char *file_input, int &lon, int &wid, int &hei)
 {
     const char *file_type[] ={"bonsai", "fuel", "BostonTeapot", "engine","foot", "fueld2",
                               "tooth", "fish", "fishd2", "CT-chest", "lobster", "skull",
-							  "leg", "silicium", "nucleon", "colon", "colond2"};
+                              "leg", "silicium", "nucleon", "colon", "colond2"};
     if (strcmp(file_input, file_type[0]) == 0)
     {
         lon = 256;
