@@ -23,8 +23,8 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
     
     file.open(file_input, ios::in | ios::binary);
     
-    if (!file.is_open()) 
-		return 0;
+    if (!file.is_open())
+        return 0;
 
     //get the file size
     file.seekg(0, ios::end);
@@ -33,7 +33,7 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
     
     unsigned char *temp_data = new unsigned char[size];
     file.read((char *)temp_data, size);
-	file.close();
+    file.close();
     
     double *file_buf = new double[size];
     
@@ -52,9 +52,9 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
 
 void FileType(const char *file_input, int &lon, int &wid, int &hei)
 {
-    const char *file_type[] ={"bonsai", "fuel", "BostonTeapot", "engine", "foot", "fueld2",
-										"tooth", "fish", "fishd2", "CT-chest", "lobster", "skull",
-										"leg", "silicium", "nucleon", "colon", "colond2"};
+    const char *file_type[] ={"bonsai", "fuel", "BostonTeapot", "engine","foot", "fueld2",
+                              "tooth", "fish", "fishd2", "CT-chest", "lobster", "skull",
+							  "leg", "silicium", "nucleon", "colon", "colond2"};
     if (strcmp(file_input, file_type[0]) == 0)
     {
         lon = 256;
