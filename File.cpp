@@ -17,13 +17,13 @@ const int LEFT_BIT = 1 << (NUMBER_OF_BITS - 1);
 
 int FileLoad(const char *file_input, int &file_addr, int &file_size)
 {
-	fstream file;
-	int i;
-	int size;
-
-	file.open(file_input, ios::in | ios::binary);
-
-	if ( !file.is_open() ) 
+    fstream file;
+    int i;
+    int size;
+    
+    file.open(file_input, ios::in | ios::binary);
+    
+    if (!file.is_open()) 
 		return 0;
 
 	//get the file size
@@ -37,17 +37,17 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
 
 	double *file_buf = new double[size];
 	
-	for (i = 0; i < size; i++)
-	{
-		file_buf[i] = temp_data[i];
-	}
-
-	file_size = size;
-	file_addr = (int)file_buf;
-
-	delete [] temp_data;
-
-	return 1;
+    for (i = 0; i < size; i++)
+    {
+        file_buf[i] = temp_data[i];
+    }
+    
+    file_size = size;
+    file_addr = (int)file_buf;
+    
+    delete [] temp_data;
+    
+    return 1;
 }
 
 void FileType(const char *file_input, int &lon, int &wid, int &hei)
