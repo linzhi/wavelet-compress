@@ -1,10 +1,3 @@
-/*
- *	FILE：quantize.h	
- *	量化处理：采用固定阈值法，设置一个固定值value
- *	算法描述：小于value的值全部置0，别的保持不变
- *
- */
-
 #ifndef QUANTIZE_H
 #define QUANTIZE_H
 
