@@ -1,8 +1,8 @@
 /*
- *	FILE: File.h
- * Author: linzhi
- *	Date;2012-7-30
- *	
+ *  FILE: File.h
+ *  Author: linzhi
+ *  Date;2012-7-30
+ *
  */
 
 #ifndef FILE_H
