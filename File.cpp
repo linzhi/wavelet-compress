@@ -1,5 +1,5 @@
 /*
- * FILE: File.c
+ * FILE: File.cpp
  * Date: 2012-7-15
  * Author: linzhi
  */
