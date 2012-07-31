@@ -37,7 +37,6 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
     temp_ex_wid = ex_wid;
     temp_ex_hei = ex_hei;
     
-    //convert the 1D data to 3D data(按行存储,存储满一层,再存储下一层)
     for (i = 0; i < hei; i++)
     {
         for (j = 0; j < lon; j++)
@@ -80,7 +79,6 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
         temp_level++;
     }
     
-    //convert the 3D data to 1D data(按行存储)
     for (i = 0; i < hei; i++)
     {
         for (j = 0; j < lon; j++)
