@@ -1,7 +1,7 @@
 #include <iostream>
-#include "WaveletComDec.h"
 #include "WaveletCompress.h"
 #include "WaveletDecompress.h"
+#include "WaveletComDec.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
             cout << "Done.\n\n";
             system("pause");
             break;
-
+        
         case 3:
             cout << "Syntax: [input filename][output filename] [level = 1] [value = 5]\n=>";
             cin >> file_input >> file_output >> level >> value;
