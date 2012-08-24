@@ -1,5 +1,6 @@
 #include <iostream>
 #include "WaveletComDec.h"
+
 using namespace std;
 
 void CompressDecompress(const char *file_input, char *file_output, int level, int value)
@@ -18,18 +19,21 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
     int ex_hei = 0;
     int temp;
     int temp_level = level;
-    double *temp_file = NULL;
+    double mse = 0;
+    double psnr = 0;
+    double *file_in = NULL;
+    double *file_out = NULL;
     double ***data_input = NULL;
     
     if (!FileLoad(file_input, file_addr, file_size))
     {
-        cout << "Open file error" << endl;
+        cout << "Open file error\n" << endl;
         return ;
     }
     
     FileType(file_input, lon, wid, hei);
     
-    temp_file = (double *)file_addr;
+    file_in = (double *)file_addr;
     
     data_input = SetData(data_input, lon, wid, hei, ex_lon, ex_wid, ex_hei);
     
@@ -44,7 +48,7 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
             for (k = 0; k < wid; k++)
             {
                 temp =  lon * wid * i + wid * j +k;
-                data_input[j][k][i] = temp_file[temp];
+                data_input[j][k][i] = file_in[temp];
             }
         }
     }
@@ -67,8 +71,6 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
     
     while (temp_level < level && ex_lon > 1 && ex_wid > 1 && ex_hei > 1)
     {
-        InverseHaarTransform3D(data_input, ex_lon, ex_wid, ex_hei);
-        
         if (ex_lon > 1)
             ex_lon = ex_lon * 2;
         if (ex_wid > 1)
@@ -76,8 +78,12 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
         if (ex_hei > 1)
             ex_hei = ex_hei * 2;
         
+        InverseHaarTransform3D(data_input, ex_lon, ex_wid, ex_hei);
+        
         temp_level++;
     }
+    
+    file_out = new double[file_size];
     
     for (i = 0; i < hei; i++)
     {
@@ -85,17 +91,23 @@ void CompressDecompress(const char *file_input, char *file_output, int level, in
         {
             for (k =0; k < wid; k++)
             {
-                temp = lon * wid * i + wid * j +k;
-                temp_file[temp] = data_input[j][k][i];
+                temp = lon * wid * i + wid * j + k;
+                file_out[temp] = data_input[j][k][i];
             }
         }
     }
     
-    if (!FileSave(temp_file, file_output, temp + 1))
+    mse = MeanSquaredError(file_in, file_out, file_size);
+    psnr = PeakSignalToNoiseRatio(mse);
+    cout << "MSE: " << mse << endl;
+    cout << "PSNR: " << psnr << endl;
+    
+    if (!FileSave(file_out, file_output, file_size))
     {
-        cout << "Error save file" << endl;
+        cout << "Error save file\n" << endl;
     }
     
-    delete [] temp_file;
+    delete [] file_in;
+    delete [] file_out;
     delete [] data_input;
 }
