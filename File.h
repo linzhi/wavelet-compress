@@ -1,15 +1,13 @@
 /*
- *
  * FILE: File.h
  * Author: linzhi
  * Date:2012-7-30
- *
  */
 
 #ifndef FILE_H
 #define FILE_H
 
-//load file and expand the data from unsigned char to double 
+//load file and expand the data from unsigned char to double
 int FileLoad(const char *file_input, int &file_addr, int &file_size);
 
 //check the file's basic information

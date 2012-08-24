@@ -25,11 +25,11 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
     
     if (!file.is_open())
         return 0;
-
+    
     //get the file size
     file.seekg(0, ios::end);
     size = file.tellg();
-    file.seekg(ios::beg);	
+    file.seekg(ios::beg);
     
     unsigned char *temp_data = new unsigned char[size];
     file.read((char *)temp_data, size);
@@ -52,7 +52,7 @@ int FileLoad(const char *file_input, int &file_addr, int &file_size)
 
 void FileType(const char *file_input, int &lon, int &wid, int &hei)
 {
-    const char *file_type[] ={"bonsai", "fuel", "BostonTeapot", "engine","foot", "fueld2",
+    const char *file_type[] ={"bonsai", "fuel", "BostonTeapot", "engine", "foot", "fueld2",
                               "tooth", "fish", "fishd2", "CT-chest", "lobster", "skull",
                               "leg", "silicium", "nucleon", "colon", "colond2"};
     
@@ -138,6 +138,7 @@ void FileType(const char *file_input, int &lon, int &wid, int &hei)
         lon = 256;
         wid = 256;
         hei = 256;
+    }
     
     if (strcmp(file_input, file_type[12]) == 0)
     {
@@ -247,10 +248,11 @@ double ***SetData(double ***data_input, int &lon, int &wid, int &hei, int &ex_lo
     ex_wid = GetClosestPowerOfTwo(wid);
     ex_hei = GetClosestPowerOfTwo(hei);
     
-    //create a three-dimensional pointer then allocate space to store data
+    //create a three-dimensional pointer then allocate space to store data 
     //data_input[i] standard for the i long
     //data_input[i][j] standard for the i layer j width
     //data_input[i][j][k] standard for the i long j width k layer
+
     data_input = new double **[ex_lon];
     
     for (i = 0; i < ex_lon; i++)
@@ -276,6 +278,6 @@ double ***SetData(double ***data_input, int &lon, int &wid, int &hei, int &ex_lo
             }
         }
     }
-
+    
     return data_input;
 }
