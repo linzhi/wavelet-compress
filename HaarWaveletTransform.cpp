@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "HaarWaveletTransform.h"
+
 using namespace std;
 
 const double SQRT2 = sqrt(2.0);
