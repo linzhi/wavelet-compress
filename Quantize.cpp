@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
 void DataQuantize2D(double **data_input, int hei, int wid, int value)
