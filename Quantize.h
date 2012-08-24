@@ -1,3 +1,9 @@
+/*
+ * FILE£ºquantize.h	
+ * Date: 2012-8-10
+ * Author: linzhi
+ */
+
 #ifndef QUANTIZE_H
 #define QUANTIZE_H
 

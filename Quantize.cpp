@@ -19,7 +19,7 @@ void DataQuantize2D(double **data_input, int hei, int wid, int value)
         {
             temp = data_input[i][j];
             if (abs(temp) <= value)
-                data_input[i][j] = temp;
+                data_input[i][j] = 0.0;
         }
     }
 }
@@ -44,7 +44,7 @@ void DataQuantize3D(double ***data_input, int lon, int wid, int hei, int value)
             {
                 temp = data_input[i][j][k];
                 if (abs(temp) <= value)
-                    data_input[i][j][k] = temp;
+                    data_input[i][j][k] = 0.0;
             }
         }
     }
