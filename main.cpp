@@ -2,6 +2,7 @@
 #include "WaveletCompress.h"
 #include "WaveletDecompress.h"
 #include "WaveletComDec.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
