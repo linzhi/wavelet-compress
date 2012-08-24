@@ -1,9 +1,3 @@
-/*
- * FILE: File.cpp
- * Date: 2012-7-15
- * Author: linzhi
- */
-
 #include <iostream> 
 #include <fstream>
 #include <cstring>
