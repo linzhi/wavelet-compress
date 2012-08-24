@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             cout << "Compressing......" << endl;
             Compress(file_input, file_save, level, value);
             cout << "Done.\n\n";
-            system("pause");
+            cin.get();
             break;
         
         case 2:
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
             cout << "Decompressing" << endl;
             Decompress(file_save, file_output);
             cout << "Done.\n\n";
-            system("pause");
+            cin.get();
             break;
         
         case 3:
@@ -49,18 +49,18 @@ int main(int argc, char *argv[])
             cout << "Compressing & Decompressing......" << endl;
             CompressDecompress(file_input, file_output, level, value);
             cout << "Done.\n\n";
-            system("pause");
+            cin.get();
             break;
         
         case 4:
             exit = 1;
             cout <<"Exit wavelet compression programme\n";
-            system("pause");
+            cin.get();
             break;
         
         default:
             cout << "Invalid choice. Choose again.\n" << endl;
-            system("pause");
+            cin.get();
             break;
         }
     }
