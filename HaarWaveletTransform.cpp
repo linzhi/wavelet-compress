@@ -18,8 +18,8 @@ void HaarTransform1D(double *data_input, int size)
     
     temp_size = temp_size / 2;
     
-    for (i = 0; i < temp_size; i++) 
-	{
+    for (i = 0; i < temp_size; i++)
+    {
         temp_data[i] = (data_input[2 * i] + data_input[(2 * i) + 1]) / SQRT2;
         temp_data[temp_size + i] = (data_input[2 * i] - data_input[(2 * i) + 1]) / SQRT2;
     }
@@ -33,7 +33,7 @@ void HaarTransform1D(double *data_input, int size)
 }
 
 /*
- * Inverse Transform for once using 1D haar wavelet
+ * Inverse transform for once using 1D haar wavelet
  */
 
 void InverseHaarTransform1D(double *data_input, int size)
@@ -103,7 +103,7 @@ void HaarTransform2D(double **data_input, int hei, int wid)
 }
 
 /*
- * Inverse Transform for once using 2D haar wavelet
+ * Inverse transform for once using 2D haar wavelet
  */
 
 void InverseHaarTransform2D(double **data_input, int hei, int wid)
@@ -121,6 +121,7 @@ void InverseHaarTransform2D(double **data_input, int hei, int wid)
                 temp_hei[j] = data_input[j][i];
             
             InverseHaarTransform1D(temp_hei, hei);
+
             for (j = 0; j < hei; j++)
                 data_input[j][i] = temp_hei[j];
         }
@@ -184,7 +185,7 @@ void HaarTransform3D(double ***data_input, int lon, int wid, int hei)
         }
     }
     
-    //haar transfomr for width
+    //haar transform for width
     if ((lon > 1) && (hei > 1))
     {
         for (i = 0; i < hei; i++)
@@ -234,7 +235,7 @@ void HaarTransform3D(double ***data_input, int lon, int wid, int hei)
 }
 
 /*
- * Inverse Transform for once using 3D haar wavelet
+ * Inverse transform for once using 3D haar wavelet
  */
 
 void  InverseHaarTransform3D(double ***data_input, int lon, int wid, int hei)
